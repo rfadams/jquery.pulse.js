@@ -45,7 +45,10 @@
 
       function animate() {
         if (typeof el.data('pulse') === 'undefined') return;
-        if (el.data('pulse').stop) return;
+        if (el.data('pulse').stop) {
+          el.css(original);
+          return;
+        }
         if (options.pulses > -1 && ++timesPulsed > options.pulses) return callback.apply(el);
         el.animate(
           properties,
